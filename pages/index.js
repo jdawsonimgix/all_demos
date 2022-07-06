@@ -15,3 +15,8 @@ export default function Home() {
 }
 
 //https://javascript.plainenglish.io/next-js-client-side-rendering-56a3cae65148
+/*
+  <div className={styles.container}>
+      <DynamicHeader theSource="https://assets.imgix.video/videos/girl-reading-book-in-library.mp4" />
+    </div>
+*/
