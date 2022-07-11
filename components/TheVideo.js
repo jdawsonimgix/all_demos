@@ -7,22 +7,35 @@ export const Video = createComponent(React, 'ix-video', IxVideo, {
 })
 
 const TheVideo = ({ theSource, theid }) => {
-  const [hasControls, setHadControls] = useState(true)
-
-  const handleClick = () => {
+  const handlePlay = () => {
     const videoPlayer = document.querySelector('ix-video video')
+    console.log(videoPlayer)
     videoPlayer.play()
+  }
+
+  const handlePause = () => {
+    const videoPlayer = document.querySelector('ix-video video')
+    videoPlayer.pause()
   }
   return (
     <div>
-      <button onClick={handleClick}>Toggle controls</button>
+      <button onClick={handlePlay}>Play</button>
+      <button onClick={handlePause}>Pause</button>
       <Video
         id="ix-video"
         controls
         source={theSource}
         //source="https://assets.imgix.video/videos/girl-reading-book-in-library.mp4"
         onSeeked={(e) => console.log(e)}
-        width="800"
+        width="400"
+      />
+      <Video
+        id="ixx-video"
+        controls
+        source={theSource}
+        //source="https://assets.imgix.video/videos/girl-reading-book-in-library.mp4"
+        onSeeked={(e) => console.log(e)}
+        width="400"
       />
     </div>
   )
