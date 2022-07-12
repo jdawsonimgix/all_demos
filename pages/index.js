@@ -11,10 +11,9 @@ const DynamicHeader = dynamic(() => import('../components/TheVideo'), {
 export default function Home() {
   return (
     <div className={styles.container}>
-      <DynamicHeader
-        id="test"
-        theSource="https://assets.imgix.video/videos/girl-reading-book-in-library.mp4"
-      />
+      <TheHeader />
+      <DynamicHeader />
+      <TheFooter />
     </div>
   )
 }

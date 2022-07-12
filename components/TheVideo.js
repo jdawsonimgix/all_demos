@@ -6,7 +6,11 @@ export const Video = createComponent(React, 'ix-video', IxVideo, {
   onSeeked: 'seeked',
 })
 
-const TheVideo = ({ theSource, theid }) => {
+const TheVideo = () => {
+  const [videoURL, setURL] = useState(
+    'https://jdawson.imgix.video/mixkit-stars-in-space-1610.mp4',
+  )
+
   const handlePlay = () => {
     const videos = document.getElementsByTagName('video')
     const firstPlayer = videos[0]
@@ -26,17 +30,26 @@ const TheVideo = ({ theSource, theid }) => {
     <div>
       <button onClick={handlePlay}>Play</button>
       <button onClick={handlePause}>Pause</button>
+      <form>
+        <label>
+          Enter url:
+          <input
+            type="text"
+            value={videoURL}
+            onChange={(e) => setURL(e.target.value)}
+          />
+        </label>
+      </form>
       <Video
         controls
-        source={theSource}
-        //source="https://assets.imgix.video/videos/girl-reading-book-in-library.mp4"
+        source={videoURL + `?fm=mp4`}
         onSeeked={(e) => console.log(e)}
         width="400"
+        type="video/mp4"
       />
       <Video
         controls
-        source={theSource}
-        //source="https://assets.imgix.video/videos/girl-reading-book-in-library.mp4"
+        source={videoURL}
         onSeeked={(e) => console.log(e)}
         width="400"
       />
@@ -45,8 +58,3 @@ const TheVideo = ({ theSource, theid }) => {
 }
 
 export default TheVideo
-
-// useEffect(() => {
-//   // const videos = document.getElementsByTagName('Video')
-//   // console.log(videos)
-// })
